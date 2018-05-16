@@ -1,0 +1,9 @@
+https://blog.csdn.net/zhou_xuexi/article/details/77963814
+
+https://github.com/hy20090501/koa2-mongoose-demo/blob/master/routes_config.js
+
+https://github.com/hy20090501/koa2-mongoose-demo/blob/master/routes/list.js
+
+https://github.com/hy20090501/koa2-mongoose-demo/blob/master/models/employee.js
+
+https://github.com/hy20090501/koa2-mongoose-demo/blob/master/config.js
