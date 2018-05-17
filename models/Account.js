@@ -26,7 +26,16 @@ AccountSchema.statics.findAll = async function() {
     //let intime = Date.now();
     //console.log(`进入时间:${intime}`)
     //let list = await this.model('Account').find({});
-    var list1 = await this.find({});
+    //var list1 = await this.find({});
+    var time=Date.now()+10000;
+    var t=true;
+    while (t) {
+        if (Date.now() > time)
+            t = false;
+    }
+    return await this.find({}) 
+    
+    /*
     await setTimeout(() => {
         //let outtime = Date.now();
         //console.log(`耗时${outtime - intime}`);
@@ -34,6 +43,7 @@ AccountSchema.statics.findAll = async function() {
         return list1;
 
     }, 5000);
+    */
     console.log("xxxx")
 }
 

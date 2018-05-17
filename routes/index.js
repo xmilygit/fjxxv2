@@ -31,4 +31,28 @@ router.get('/test', async(ctx, next) => {
     })
 })
 
+async function t1(){
+    var http=require('http');
+    var intime=Date.now();
+
+    return http.get("http://scratch.mit.edu/");
+    /*
+    return new Promise(function(resolve,reject){
+        http.get("http://scratch.mit.edu/", (html) => {
+            console.log('耗时:' + (Date.now() - intime));
+            resolve(html)
+        })
+    });
+    */
+}
+
+router.get('/test2',async(ctx,next)=>{
+    var html=await t1()
+    console.log(html) 
+    await ctx.render('test',{
+        title:"test",
+        html:html
+    })
+})
+
 module.exports = router
