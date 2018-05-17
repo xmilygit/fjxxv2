@@ -6,6 +6,7 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
+const db = require('./cfg/dbconfig')
 const index = require('./routes/index')
 const users = require('./routes/users')
 

@@ -1,0 +1,13 @@
+修改内嵌文档数组的值的方法
+
+db.Account.update(
+{
+    _id:ObjectId("5afc5c04831edaa8fadc9cd5"),
+    "binders":{$elemMatch:{id:ObjectId("5afc62a1831edaa8fadc9f5c")}}
+},
+{
+    $set:{
+        "binders.$.bindertype":"baseinfo"
+        }
+}
+)

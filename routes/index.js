@@ -1,25 +1,34 @@
 const router = require('koa-router')()
+const mongoose = require('mongoose');
+const Account = require('../models/Account');
 
-router.get('/', async (ctx, next) => {
-  await ctx.render('index', {
-    title: 'Hello Koa 2!'
-  })
+
+router.get('/', async(ctx, next) => {
+    await ctx.render('index', {
+        title: 'Hello Koa 2!'
+    })
 })
 
-router.get('/string', async (ctx, next) => {
-  ctx.body = 'koa2 string'
+router.get('/string', async(ctx, next) => {
+    ctx.body = 'koa2 string'
 })
 
-router.get('/json', async (ctx, next) => {
-  ctx.body = {
-    title: 'koa2 json'
-  }
+router.get('/json', async(ctx, next) => {
+    ctx.body = {
+        title: 'koa2 json'
+    }
 })
 
-router.get('/test',async(ctx,next)=>{
-  await ctx.render('test',{
-    title:'test'
-  })
+router.get('/test', async(ctx, next) => {
+    try {
+        var list = await mongoose.model('Account').findAll();
+    } catch (err) {
+        console.log(err)
+    }
+    console.log(list)
+    await ctx.render('test', {
+        title: 'test'
+    })
 })
 
 module.exports = router
