@@ -27,24 +27,8 @@ AccountSchema.statics.findAll = async function() {
     //console.log(`进入时间:${intime}`)
     //let list = await this.model('Account').find({});
     //var list1 = await this.find({});
-    var time=Date.now()+10000;
-    var t=true;
-    while (t) {
-        if (Date.now() > time)
-            t = false;
-    }
-    return await this.find({}) 
-    
-    /*
-    await setTimeout(() => {
-        //let outtime = Date.now();
-        //console.log(`耗时${outtime - intime}`);
-
-        return list1;
-
-    }, 5000);
-    */
-    console.log("xxxx")
+    var p = await this.model('Account').find({}).exec()
+    return p;
 }
 
 mongoose.model('Account', AccountSchema);
