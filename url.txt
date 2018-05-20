@@ -7,3 +7,8 @@ https://github.com/hy20090501/koa2-mongoose-demo/blob/master/routes/list.js
 https://github.com/hy20090501/koa2-mongoose-demo/blob/master/models/employee.js
 
 https://github.com/hy20090501/koa2-mongoose-demo/blob/master/config.js
+
+
+https://blog.csdn.net/hj7jay/article/details/61191416
+
+https://www.cnblogs.com/HelloMyWorld/p/5526914.html

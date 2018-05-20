@@ -23,12 +23,22 @@ var AccountSchema = new mongoose.Schema({
 }, { collection: 'Account' });
 
 AccountSchema.statics.findAll = async function() {
-    //let intime = Date.now();
-    //console.log(`进入时间:${intime}`)
+    let intime = Date.now();
+    console.log(`进入时间:${intime}`)
     //let list = await this.model('Account').find({});
     //var list1 = await this.find({});
     var p = await this.model('Account').find({}).exec()
+    let outtime=Date.now();
+    console.log(await sleep(3000))
+    console.log(`耗时时间:${outtime-intime}`)
     return p;
+}
+
+async function sleep(time) {
+    setTimeout(() => {
+        console.log(`休息了:${time}`)
+        return "abcd"
+    }, time);
 }
 
 mongoose.model('Account', AccountSchema);
