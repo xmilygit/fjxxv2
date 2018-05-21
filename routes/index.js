@@ -23,7 +23,7 @@ router.get('/test', async(ctx, next) => {
     try {
         var list = await mongoose.model('Account').findAll();
     } catch (err) {
-        console.log(err)
+        x(err)
     }
     console.log(list)
     await ctx.render('test', {

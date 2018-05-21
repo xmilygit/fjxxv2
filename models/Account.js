@@ -29,16 +29,18 @@ AccountSchema.statics.findAll = async function() {
     //var list1 = await this.find({});
     var p = await this.model('Account').find({}).exec()
     let outtime=Date.now();
-    console.log(await sleep(3000))
+    console.log( await sleep(10000))
     console.log(`耗时时间:${outtime-intime}`)
     return p;
 }
 
 async function sleep(time) {
-    setTimeout(() => {
+    return new Promise(resolve=>{
+        setTimeout(() => {
         console.log(`休息了:${time}`)
-        return "abcd"
+        resolve(`休息了:${time}`)
     }, time);
+})
 }
 
 mongoose.model('Account', AccountSchema);
