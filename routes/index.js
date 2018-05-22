@@ -20,12 +20,17 @@ router.get('/json', async(ctx, next) => {
 })
 
 router.get('/test', async(ctx, next) => {
+    var time=ctx.request.query.time
+    /*
     try {
         var list = await mongoose.model('Account').findAll();
     } catch (err) {
         x(err)
     }
+    
     console.log(list)
+    */
+    await mongoose.model('Account').sleep(time);
     await ctx.render('test', {
         title: 'test'
     })
