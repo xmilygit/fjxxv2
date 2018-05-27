@@ -20,17 +20,12 @@ router.get('/json', async(ctx, next) => {
 })
 
 router.get('/test', async(ctx, next) => {
-    var time=ctx.request.query.time
-    /*
-    try {
-        var list = await mongoose.model('Account').findAll();
-    } catch (err) {
-        x(err)
-    }
-    
-    console.log(list)
-    */
-    await mongoose.model('Account').sleep(time);
+    // var time=ctx.request.query.time
+    // await mongoose.model('Account').sleep(time);
+    // var acct=await mongoose.model('Account').myFind('5afc5c04831edaa8fadc9cd5')
+    var acct= mongoose.model('Account')
+    var acct2=await acct.myFind({'username':'徐明','password':'ad382994a0b58821324c1e4c30d700eca724d4dc'})
+    console.log(acct2[0].username)
     await ctx.render('test', {
         title: 'test'
     })

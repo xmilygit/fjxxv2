@@ -22,29 +22,32 @@ var AccountSchema = new mongoose.Schema({
     }]
 }, { collection: 'Account' });
 
-AccountSchema.statics.findAll = async function () {
-    let intime = Date.now();
-    console.log(`进入时间:${intime}`)
-    //let list = await this.model('Account').find({});
-    //var list1 = await this.find({});
-    var p = await this.model('Account').find({}).exec()
-    let outtime = Date.now();
-    //var s=await sleep(10000)
-    console.log(await sleep(10000))
-    console.log(`耗时时间:${outtime - intime}`)
-    return p;
+//获取所有记录
+AccountSchema.statics.myFindAll = async function () {
+    // let intime = Date.now();
+    // console.log(`进入时间:${intime}`)
+
+    let list = await this.model('Account').find({}).exec()
+    // let outtime = Date.now();
+    // console.log(await sleep(10000))
+    // console.log(`耗时时间:${outtime - intime}`)
+    return list;
 }
-AccountSchema.statics.sleep = async function (time) {
-    await sleep(time)
+//根据给定的条件查找
+AccountSchema.statics.myFind = async function (conditions) {
+    let list = await this.model('Account').find(conditions).exec()
+    return list
+}
+//根据ID查找记录
+AccountSchema.statics.myFindById = async function (id) {
+    let reco = await this.model('Account').findById(id).exec();
+    return reco;
 }
 
-async function sleep(time) {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            console.log(`休息了:${time}`)
-            resolve(`休息了:${time}`)
-        }, time);
-    })
+//插入数据
+AccountSchema.statics.myCreate = async function (doc) {
+    await this.model('Account').create(doc).exec()
 }
+
 
 mongoose.model('Account', AccountSchema);
