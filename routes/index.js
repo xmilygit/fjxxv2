@@ -1,6 +1,8 @@
 const router = require('koa-router')()
 const mongoose = require('mongoose');
 const Account = require('../models/Account');
+const comm = require('../BLL/comm')
+const path = require('path');
 
 
 router.get('/', async(ctx, next) => {
@@ -23,17 +25,35 @@ router.get('/test', async(ctx, next) => {
     // var time=ctx.request.query.time
     // await mongoose.model('Account').sleep(time);
     // var acct=await mongoose.model('Account').myFind('5afc5c04831edaa8fadc9cd5')
-    var acct= mongoose.model('Account')
-    var acct2=await acct.myFind({'username':'徐明','password':'ad382994a0b58821324c1e4c30d700eca724d4dc'})
+    var acct = mongoose.model('Account')
+    var acct2 = await acct.myFind({ 'username': '徐明', 'password': 'ad382994a0b58821324c1e4c30d700eca724d4dc' })
     console.log(acct2[0].username)
     await ctx.render('test', {
         title: 'test'
     })
 })
 
-async function t1(){
-    var http=require('http');
-    var intime=Date.now();
+router.get('/test3', async(ctx, next) => {
+    var psw = comm.strtomd5("123123123");
+    try {
+        var json = await comm.xlstojsonfile(
+            path.resolve(__dirname, '../public/all.xlsx'),
+            path.resolve(__dirname, '../public/all.json'),
+            "Sheet1"
+        )
+    } catch (err) {
+        console.log(err.message)
+        console.log(json);
+    }
+    console.log(psw);
+    await ctx.render('test', {
+        title: 'test'
+    })
+})
+
+async function t1() {
+    var http = require('http');
+    var intime = Date.now();
 
     return http.get("http://scratch.mit.edu/");
     /*
@@ -46,12 +66,12 @@ async function t1(){
     */
 }
 
-router.get('/test2',async(ctx,next)=>{
-    var html=await t1()
-    console.log(html) 
-    await ctx.render('test',{
-        title:"test",
-        html:html
+router.get('/test2', async(ctx, next) => {
+    var html = await t1()
+    console.log(html)
+    await ctx.render('test', {
+        title: "test",
+        html: html
     })
 })
 
