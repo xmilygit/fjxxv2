@@ -7,7 +7,7 @@ exports.strtomd5 = function(str) {
     return sha1.digest('hex');
 }
 
-exports.xlstojsonfile = async function(xlsf, jsonf, sheetname) {
+exports.xlstojsonfile = async function(xlsf, jsonf, sheetname="Sheet1") {
     return new Promise((resolve, reject) => {
         xlstojson({
             input: xlsf,

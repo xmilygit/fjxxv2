@@ -41,9 +41,10 @@ router.get('/test3', async(ctx, next) => {
             path.resolve(__dirname, '../public/all.json'),
             "Sheet1"
         )
+        console.log(json); 
     } catch (err) {
         console.log(err.message)
-        console.log(json);
+        
     }
     console.log(psw);
     await ctx.render('test', {
