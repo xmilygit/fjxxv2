@@ -7,7 +7,18 @@ db.Account.update(
 },
 {
     $set:{
-        "binders.$.bindertype":"baseinfo"
+        "binders.$.bindertype":"baseinfo":
+        }
+}
+)
+
+db.Account.update(
+{
+    _id:ObjectId("5afc5c04831edaa8fadc9cd5")
+},
+{
+    $push: {
+        "binders":{"bindertype":"baseinfo","id":1}
         }
 }
 )
