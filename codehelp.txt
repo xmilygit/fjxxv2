@@ -22,3 +22,8 @@ db.Account.update(
         }
 }
 )
+
+
+db.BaseInfo.find({}).forEach(function(doc){
+    db.Account.updateOne({"pid":doc.pid},{$push:{"binders":{"id":doc._id,"type":"baseinfo"}}})
+})

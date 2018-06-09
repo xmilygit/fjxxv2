@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <!-- Required meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
@@ -10,26 +11,81 @@
     <!-- Your app title -->
     <title>{{title}}</title>
     <!-- Path to Framework7 Library CSS -->
-    <link rel="stylesheet" href="javascripts/f7/css/framework7.min.css">
+    <link rel="stylesheet" href="/javascripts/f7/css/framework7.min.css">
     <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="stylesheets/style.css">
-  </head>
-  <body>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
     <!-- App root element -->
     <div id="app">
-      <!-- Statusbar overlay -->
-      <div class="statusbar"></div>
+        <!-- Statusbar overlay -->
+        <div class="statusbar"></div>
 
-      <!-- Your main view, should have "view-main" class -->
-      <div class="view view-main">
-        <!-- Initial Page, "data-name" contains page name -->
-        {% block content %}
-        {% endblock %}
-      </div>
+        <!-- Left panel -->
+        <div class="panel panel-left panel-cover">
+            <!-- <div class="list accordion-list">
+                <a href="#index" class="item-link item-content">
+                    <div class="item-inner">
+                        <div class="item-title">首页</div>
+                    </div>
+                </a>
+            </div> -->
+            <div class="list accordion-list">
+                <a href="#" class="item-link item-content">
+                    <div class="item-inner">
+                        <div class="item-title">首页</div>
+                    </div>
+                </a>
+                <ul>
+                    <li class="accordion-item">
+                        <a href="#" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title">用户管理</div>
+                            </div>
+                        </a>
+                        <div class="accordion-item-content">
+                            <div class="list display-block links-list item-content">
+                                <ul>
+                                    <li><a href="#">用户管理列表</a></li>
+                                    <li><a href="# ">Link 2</a></li>
+                                    <li><a href="# ">Link 3</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="accordion-item">
+                        <a href="#" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title">学籍信息管理</div>
+                            </div>
+                        </a>
+                        <div class="accordion-item-content">
+                            <div class="list display-block links-list item-content">
+                                <ul>
+                                    <li><a href="#">相关开关状态管理</a></li>
+                                    <li><a href="# ">Link 2</a></li>
+                                    <li><a href="# ">Link 3</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- Your main view, should have "view-main " class -->
+        <div class="view view-main ">
+            <!-- Initial Page, "data-name " contains page name -->
+            {% block content %} {% endblock %}
+        </div>
     </div>
     <!-- Path to Framework7 Library JS-->
-    <script type="text/javascript" src="javascripts/f7/js/framework7.min.js"></script>
+    <script type="text/javascript " src="/javascripts/f7/js/framework7.min.js "></script>
     <!-- Path to your app js-->
-    <script type="text/javascript" src="javascripts/my-app.js"></script>
-  </body>
+    <script type="text/javascript " src="/javascripts/my-app.js "></script>
+</body>
+
 </html>

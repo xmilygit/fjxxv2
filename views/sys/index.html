@@ -1,10 +1,10 @@
- {% extends 'views/layout/f7base.html' %} {% block content %}
+{% extends 'views/layout/f7base.html' %} {% block content %}
 <div data-name="home" class="page">
 
     <!-- Top Navbar -->
     <div class="navbar">
         <div class="navbar-inner">
-            <div class="title">Awesome App</div>
+            <div class="title">{{title}}</div>
         </div>
     </div>
 
@@ -20,10 +20,7 @@
 
     <!-- Scrollable page content -->
     <div class="page-content">
-        <p>Page content goes here</p>
-        {{html}}
-        <!-- Link to another page -->
-        <a href="/about/">About app</a>
+        <p>Page content goes here111</p>
     </div>
 </div>
-{% endblock %}
+{% endblock%}

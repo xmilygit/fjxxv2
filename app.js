@@ -9,6 +9,7 @@ const logger = require('koa-logger')
 const db = require('./cfg/dbconfig')
 const index = require('./routes/index')
 const users = require('./routes/users')
+const sys = require('./routes/sys/sys')
 
 // error handler
 onerror(app)
@@ -25,7 +26,8 @@ app.use(require('koa-static')(__dirname + '/public'))
 //    extension: 'nunjucks'
 //}))
 app.use(views(__dirname + '/views', {
-    map: { html: 'nunjucks' }
+    map: { html: 'nunjucks' },
+    noCache: true
 }));
 
 // logger
@@ -39,6 +41,7 @@ app.use(async(ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(sys.routes(), sys.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
