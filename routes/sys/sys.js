@@ -13,6 +13,10 @@ router.get('/', async(ctx, next) => {
     })
 })
 
-
+router.get('/pages/accountmng', async(ctx, next) => {
+    await ctx.render('sys/pages/Accountmng', {
+        title: '用户管理'
+    })
+})
 
 module.exports = router
