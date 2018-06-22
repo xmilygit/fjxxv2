@@ -1,7 +1,6 @@
 var theme = 'md';
 // if (location.href.indexOf('theme=md') >= 0) theme = 'md';
 var $$ = Dom7;
-
 var app = new Framework7({
     // App root element
     root: '#app',
@@ -31,13 +30,17 @@ var app = new Framework7({
                         }
                     }
                 });
+            },
+            pageBeforeIn: function (event, page) {
+            },
+            pageInit: function (event, page) {               
 
                 //创建无限滚动
                 // Loading flag
                 var allowInfinite = true;
 
                 // Last loaded index
-                var lastItemIndex = $$('.list li').length;
+                var lastItemIndex = $$('#testlist li').length;
 
                 // Max items to load
                 var maxItems = 200;
@@ -46,7 +49,7 @@ var app = new Framework7({
                 var itemsPerLoad = 20;
 
                 // Attach 'infinite' event handler
-                $$('.infinite-scroll-content').on('infinite', function () {
+                $$('#userlistInfinite').on('infinite', function () {
                     // Exit, if loading in progress
                     if (!allowInfinite) return;
 
@@ -73,10 +76,10 @@ var app = new Framework7({
                         }
 
                         // Append new items
-                        $$('.list ul').append(html);
+                        $$('#testlist ul').append(html);
 
                         // Update last loaded index
-                        lastItemIndex = $$('.list li').length;
+                        lastItemIndex = $$('#testlist li').length;
                     }, 1000);
                 });
             }
@@ -84,7 +87,5 @@ var app = new Framework7({
     },],
     // ... other parameters
 });
-
-
-
 var mainView = app.views.create('.view-main');
+app.infiniteScroll.create("#userlistInfinite")
