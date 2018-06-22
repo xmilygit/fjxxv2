@@ -1,23 +1,69 @@
 <div class="page" data-page="userlist" style="margin-top:0px">
-    <form class="searchbar" style="margin-top:100px">
-        <div class="searchbar-inner">
-            <div class="searchbar-input-wrap">
-                <input type="search" placeholder="搜索关键字，直接点击搜索显示全部">
-                <i class="searchbar-icon"></i>
-                <span class="searchbar-disable-button">取消</span>
+    <div class="searchbar-backdrop"></div>
+    <!-- Top Navbar -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left">
+                <!-- <a href="#" class="link icon-only panel-open" data-panel="left">
+                    <i class="icon f7-icons">menu</i>
+                </a> -->
+                <a href="#" class="link back">
+                    <i class="icon icon-back"></i>
+                </a>
             </div>
-        </div>
-    </form>
+            <div class="title">{{title}}</div>
+            <div class="right">
+                <!-- Link to enable searchbar -->
+                <a class="link icon-only searchbar-enable" data-searchbar=".searchbar">
+                    <i class="icon f7-icons">search_strong</i>
+                </a>
+            </div>
+            <!-- style="margin-top:56px" -->
+            <form class="searchbar searchbar-expandable">
+                <div class="searchbar-inner">
+                    <div class="searchbar-input-wrap">
+                        <input type="search" placeholder="搜索关键字，直接点击搜索显示全部">
+                        <i class="searchbar-icon"></i>
+                        <span class="searchbar-disable-button">取消</span>
+                    </div>
+                </div>
+            </form>
 
-    <div class="page-content infinite-scroll" id="userlistInfinite">
-        <div class="searchbar-backdrop"></div>
-        <div class="list-block virtual-list" id="vuserlist">
+        </div>
+    </div>
+
+
+    <div class="page-content infinite-scroll-content infinite-scroll-top" id="userlistInfinite">
+
+        <!-- <div class="list virtual-list" id="vuserlist"> -->
             <!-- keep it empty -->
-        </div>
+        <!-- </div> -->
         <!-- Preloader -->
-        <div class="infinite-scroll-preloader">
-            <div class="preloader"></div>
-        </div>
+        <div class="list simple-list">
+                <ul>
+                  <li>Item 1</li>
+                  <li>Item 2</li>
+                  <li>Item 3</li>
+                  <li>Item 4</li>
+                  <li>Item 5</li>
+                  <li>Item 6</li>
+                  <li>Item 7</li>
+                  <li>Item 8</li>
+                  <li>Item 9</li>
+                  <li>Item 10</li>
+                  <li>Item 11</li>
+                  <li>Item 12</li>
+                  <li>Item 13</li>
+                  <li>Item 14</li>
+                  <li>Item 15</li>
+                  <li>Item 16</li>
+                  <li>Item 17</li>
+                  <li>Item 18</li>
+                  <li>Item 19</li>
+                  <li>Item 20</li>
+                </ul>
+              </div>
+        <div class="preloader infinite-scroll-preloader"></div>
     </div>
 </div>
 <!-- <div class="page" data-page="userlist">
